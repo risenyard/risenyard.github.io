@@ -1,0 +1,389 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>   white.</title>
+  <meta name="description" content="A minimalist theme for hexo.">
+  <!-- 标签页图标 -->
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 动画库 -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/css/animate.css"/>
+  
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+  <!-- 代码高亮 -->
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="menu-outer">
+    <div class="menu-inner">
+      <div class="menu-site-name  animate__animated  animate__fadeInUp">
+        <a href="/">
+          white.
+        </a>
+        
+      </div>
+      <div class="menu-group">
+        <ul class="menu-ul">
+        
+          <a href="/" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              HOME
+            </li>
+          </a>
+        
+          <a href="/archives" class="nav-link">
+            <li class="menu-li  animate__animated  animate__fadeInUp">
+              BLOG
+            </li>
+          </a>
+        
+        
+        
+          <li class="menu-li animate__animated  animate__fadeInUp" id="mobile-menu">
+            <i class="ri-menu-line"></i>
+          </li>
+        
+        </ul>
+
+      </div>
+
+    </div>
+</div>
+<div id="mobile-main" class="animate__animated  animate__fadeIn">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-site-name animate__animated  animate__fadeInUp">
+      <a href="/">
+        white.
+      </a>
+    </div>
+    <div class="mobile-menu-group" id="mobile-close">
+      <i class="ri-close-line"></i>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu-div">
+  
+    <a href="/" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>HOME</span>
+      </div>
+    </a>
+  
+    <a href="/archives" class="mobile-nav-link">
+      <div class="mobile-menu-child animate__animated  animate__fadeInUp">
+        <span>BLOG</span>
+      </div>
+    </a>
+  
+  
+  </div>
+
+
+</div>
+
+<div class="body-outer">
+  <div class="body-inner">
+    
+<article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      <div class="post-title animate__animated  animate__fadeInUp"></div>
+      <div class="meta-intro animate__animated  animate__fadeInUp">Jun 12 2023</div>
+      
+    </div>
+    <div class="post-content-inner">
+      <div class="post-content-inner-space">
+
+      </div>
+      <div class="post-content-main animate__animated  animate__fadeInUp">
+        <!-- top型目录 -->
+        
+        <h1 id="Manual-Spatial-Data-Cleaning-and-Mapping-in-Python"><a href="#Manual-Spatial-Data-Cleaning-and-Mapping-in-Python" class="headerlink" title="Manual: Spatial Data Cleaning and Mapping in Python"></a>Manual: Spatial Data Cleaning and Mapping in Python</h1><p>[TOC]</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This manual gives detailed instructions about how to set up the Python environment and how to handle spatial data including the data cleaning about the geometry and data mapping in the Python environment. The content of the manual includes the description of prerequisites, methods, codes, results and possible troubles.</p>
+<p>By default the manual applies to both Windows and MacOS and has been tested in Windows 10 and MacOS Ventura platform.  Anything needing attention about the two platforms are explained in the body.</p>
+<p>The links for all the software and Python package documentation introduced can be found in the end of the manual.</p>
+<h2 id="1-Starter-Set-up-Python-Environment"><a href="#1-Starter-Set-up-Python-Environment" class="headerlink" title="1 Starter: Set up Python Environment"></a>1 Starter: Set up Python Environment</h2><h4 id="1-1-Set-up-the-environment-in-Anaconda-and-install-packages"><a href="#1-1-Set-up-the-environment-in-Anaconda-and-install-packages" class="headerlink" title="1.1  Set up the environment in Anaconda and install packages"></a>1.1  Set up the environment in Anaconda and install packages</h4><p>Anaconda is a popular Python distribution that provides a set of tools and libraries. Anaconda allows user to create virtual Python environments with their own set of dependencies, packages, and configurations. Setting up Python environment in Anaconda is easy and time-saving. Anaconda is available for Windows, macOS, and Linux, so it is convenient to share Python environments across different operating systems.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled.png" >
+        </sapn>
+      </p>
+<p>Let’s open Anaconda and create a new environment as Python 3.8, which supports for all libraries we need and is stable for the for spatial data analysis in VS code.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%201.png" >
+        </sapn>
+      </p>
+<p>We can then search for the packages in the search bar and install them. For our task we need to install the libraries as follows:</p>
+<p>(image below shows the installation of <code>Geopandas</code>)</p>
+<ul>
+<li><code>Pandas</code>: Popular open-source data analysis and manipulation Python library for tabular and time-series data.</li>
+<li><code>Geopandas</code>: Python library that extends <code>Pandas</code>, with additional geospatial functionality for spatial data.</li>
+<li><code>Numpy</code>: Python library for scientific computing that provides support for working with large, multi-dimensional arrays and matrices, and a collection of mathematical functions.</li>
+<li><code>Matplotlib</code>: Python data visualization library to create a variety of static, animated, and interactive plots, graphs, and charts.</li>
+<li><code>Cartopy</code>: Python library built on top of Matplotlib that provides a set of tools for creating maps and visualizations of geospatial data.</li>
+<li><code>Mapclassify</code>: Python library for choropleth map classification, providing various methods to classify and visualize geospatial data.</li>
+</ul>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%202.png" >
+        </sapn>
+      </p>
+<h4 id="1-2-Write-Jupyter-Notebook-ipynb-x2F-Python-script-py-in-VS-Code"><a href="#1-2-Write-Jupyter-Notebook-ipynb-x2F-Python-script-py-in-VS-Code" class="headerlink" title="1.2 Write Jupyter Notebook (ipynb.) &#x2F; Python script (py.) in VS Code"></a>1.2 Write Jupyter Notebook (ipynb.) &#x2F; Python script (py.) in VS Code</h4><p>After we set up the environment, we can start to write the scripts. We will do all the coding in VS Code. VS Code is a free and open-source code editor developed by Microsoft with powerful features, customisable interface, and vast library of extensions. </p>
+<p>VS Code supports multiple programming languages and provides features like debugging, Git integration, and intelligent code completion. By simply installing extension of Python, we can edit Python script (py.) and Jupyter Notebook (ipynb.) in VS Code.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%203.png" >
+        </sapn>
+      </p>
+<p>A Python script is a plain text file with a “.py” extension that contains Python code. It can be run on any system with Python installed by invoking the Python interpreter and specifying the path to the script. Python scripts can automate tasks, manipulate data, and build applications. The scripts can be run as a whole. Jupyter Notebook is a web-based interactive computing platform with a “.ipynb” extension that allows users to create and documents that contain live Python code, visualisations, and narrative text.  It provides a user-friendly interface for data exploration, and prototyping. We can run the code by block and get real-time results. To show their different features, the spatial data cleaning will be done with Jupyter Notebook (ipynb.) and spatial data mapping will be done with Python script (py.).</p>
+<p>To start writing scripts, we switch the environment to what we have created and open VS Code in Anaconda. Then we pick a file directory and create a ipynb. and py. file. After opening them, we could find the VS code was running with the Python environment we created. (See top right corner).</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%204.png" >
+        </sapn>
+      </p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%205.png" >
+        </sapn>
+      </p>
+<p>After writing, we can run the codes of Jupyter notebook by tapping “Run” button beside each block and we will get the result of this block beneath it. We can also tap “Run All” button in the above panel and get the results of all blocks.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%206.png" >
+        </sapn>
+      </p>
+<p>For Python script, we simply tap “Run Python File” and the code will be run from the start to the end. The output information can be checked in the Terminal.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%207.png" >
+        </sapn>
+      </p>
+<h4 id="1-3-Do-version-control-using-Git-and-push-the-project-to-GitHub"><a href="#1-3-Do-version-control-using-Git-and-push-the-project-to-GitHub" class="headerlink" title="1.3 Do version control using Git and push the project to GitHub"></a>1.3 Do version control using Git and push the project to GitHub</h4><p>Version control is essential as it allows developers to track changes, collaborate effectively, revert to previous versions, and maintain code integrity, leading to better management. Git is a free and open-source version control system widely used to manage and track changes in code, and GitHub is a web-based hosting service that provides a platform for Git repositories. VS Code supports the user to build and develop the repository for version control after installing the Git and pushes the repository to GitHub. The manual will also introduce how to the version control via Git for the project.</p>
+<p>First, open source control and add the repository from the local directory.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%208.png" >
+        </sapn>
+      </p>
+<p>Next, after every changes of our code in the directory, we get notification from the source control panel. We can check the changes we made in the panel. If it is fine, we can stage the changes, add commitment message and commit them.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%209.png" >
+        </sapn>
+      </p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2010.png" >
+        </sapn>
+      </p>
+<p>If it is the first time of commitment, we can publish branch, log in our GitHub account and publish the repository to GitHub. After that, we can also synchronise the changes to the repository in GitHub every time we commit.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2011.png" >
+        </sapn>
+      </p>
+<p>By doing this, we will have local and remote (in GitHub) repositories that contain our project and track the changes of the codes.</p>
+<h2 id="2-Spatial-Data-Cleaning"><a href="#2-Spatial-Data-Cleaning" class="headerlink" title="2 Spatial Data Cleaning"></a>2 Spatial Data Cleaning</h2><p><em>Python environment: Python 3.8</em></p>
+<p><em>Format of code: Jupyter Notebook (.ipynb)</em></p>
+<p><em>Input Data: Online Natural Earth data (world country geometries); Offline ISO_A2_list.csv</em></p>
+<p><em>Output Data: Task-1-Exported-Geometries.gpkg (exported from Geodataframe,  containing ISO_A2 code,  full name of countries, population and GDP in 2019, and geometries)</em> </p>
+<h4 id="2-1-Download-geometry-data"><a href="#2-1-Download-geometry-data" class="headerlink" title="2.1 Download geometry data"></a>2.1 Download geometry data</h4><p>To begin with, we need to import <code>pandas</code> for managing the csv file, <code>geopandas</code> for spatial data, <code>numpy</code> for the arrays.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<p>Then, we get the Url from Natural Earth for 1:10m country geometries (NB. The original link leading to the download didn’t work in Python. We need to ask browser to analyse the link and get a redirected link.) The <code>read_file</code> function in geopandas can easily read the shapefile inside the zip. file we downloaded from Natural Earth.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get geometry data from Natural Earth</span></span><br><span class="line">url = <span class="string">&quot;https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip&quot;</span></span><br><span class="line">data_v1 = gpd.read_file(url)</span><br><span class="line"><span class="built_in">print</span>(data_v1.head())</span><br></pre></td></tr></table></figure>
+
+<p>Then we have a Geodataframe variable called <code>data_v1</code>. We can use the <code>to_crs</code> function to make its CRS to WGS_1984 (SRS&#x3D;4326).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set SRS=4326</span></span><br><span class="line">data_v1 = data_v1.to_crs(epsg=<span class="number">4326</span>)</span><br><span class="line"><span class="built_in">print</span>(data_v1.crs)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-Read-clean-and-join-the-csv-data"><a href="#2-2-Read-clean-and-join-the-csv-data" class="headerlink" title="2.2 Read, clean and join the csv. data"></a>2.2 Read, clean and join the csv. data</h4><p>Next, we start to clean the offline <em>ISO_A2_list 2.csv</em> provided. It is read by <code>read_csv</code> function in Pandas and becomes a Dataframe. We can find that the arrangement of the content is very messy (See left image below). We need to get rid of all the NaN rows, and split the first column by “;”, and make the results to be different new columns (column <code>‘iso_a2’</code>: ISO_A2 code for countries; <code>‘name_part2’</code>: second part of the country full names). The column <code>‘Unnamed: 1’</code> refers to the first part of the country full names, so we should fill the NaN values here to be a blank string, and concatenate the <code>‘Unnamed: 1’</code> with <code>‘name_part2’</code>, which will generate the full names of countries stored in <code>‘name’</code> column. Finally, we capitalised the iso_a2 code for the data joining later and get rid of all unnecessary columns. The right image below shows the cleaned table.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Read the ISO_A2 list file</span></span><br><span class="line">countries = pd.read_csv(<span class="string">&#x27;Task-1-Data/iso_a2_list 2.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># Get rid of all the nan rows</span></span><br><span class="line">countries = countries.dropna(how=<span class="string">&quot;all&quot;</span>)</span><br><span class="line"><span class="comment"># Split the first colmn</span></span><br><span class="line">countries[<span class="string">&#x27;iso_a2&#x27;</span>] = countries[<span class="string">&#x27;iso_a2;country_name_eng&#x27;</span>].<span class="built_in">str</span>.split(<span class="string">&#x27;;&#x27;</span>).apply(<span class="keyword">lambda</span> x: x[<span class="number">0</span>])</span><br><span class="line">countries[<span class="string">&#x27;name_part2&#x27;</span>] = countries[<span class="string">&#x27;iso_a2;country_name_eng&#x27;</span>].<span class="built_in">str</span>.split(<span class="string">&#x27;;&#x27;</span>).apply(<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"><span class="comment"># Get the full name of the country</span></span><br><span class="line">countries[<span class="string">&#x27;name&#x27;</span>] = countries[<span class="string">&#x27;Unnamed: 1&#x27;</span>].fillna(<span class="string">&#x27;&#x27;</span>) + <span class="string">&#x27; &#x27;</span> + countries[<span class="string">&#x27;name_part2&#x27;</span>]</span><br><span class="line"><span class="comment"># Captionise the iso_a2 code</span></span><br><span class="line">countries[<span class="string">&#x27;iso_a2&#x27;</span>] = countries[<span class="string">&#x27;iso_a2&#x27;</span>].<span class="built_in">str</span>.upper()</span><br><span class="line"><span class="comment"># Drop the unnecessary columns</span></span><br><span class="line">countries=countries.drop([<span class="string">&#x27;Unnamed: 1&#x27;</span>,<span class="string">&#x27;name_part2&#x27;</span>,<span class="string">&#x27;iso_a2;country_name_eng&#x27;</span>],axis=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(countries)</span><br></pre></td></tr></table></figure>
+
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2012.png" >
+        </sapn>
+      </p>
+<p>The cleaned table can then joined to the geometry data. It can done using merge function of <code>geopandas</code>. The geodataframe contains a <code>‘ISO_A2_EH’</code> column about the ISO_A2 list, and can match the <code>‘iso_a2’</code> column of the Dataframe. We set them to be <code>left_on</code> and <code>right_on</code>. The unmatched columns will be deserted. We only keep columns about ISO_A2 code,  full name of countries, population and GDP in 2019, and geometries.  Finally we get a Geodataframe named <code>data_v3</code> with 245 rows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Match the geometry with the ISO_A2 list</span></span><br><span class="line">data_v2 = data_v1.merge(countries, left_on=<span class="string">&#x27;ISO_A2_EH&#x27;</span>,right_on=<span class="string">&#x27;iso_a2&#x27;</span>)</span><br><span class="line"><span class="comment"># Keep only full name, ISO_A2, geometry, populatio and GDP of the table</span></span><br><span class="line">data_v3 = data_v2[[<span class="string">&#x27;geometry&#x27;</span>, <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;iso_a2&#x27;</span>,<span class="string">&#x27;POP_EST&#x27;</span>,<span class="string">&#x27;GDP_MD&#x27;</span>]]</span><br><span class="line"><span class="built_in">print</span>(data_v3)</span><br></pre></td></tr></table></figure>
+
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2013.png" >
+        </sapn>
+      </p>
+<h4 id="2-3-Validate-the-geometries"><a href="#2-3-Validate-the-geometries" class="headerlink" title="2.3 Validate the geometries"></a>2.3 Validate the geometries</h4><p>The validation of geometries is essential for spatial data. <code>Geopandas</code> contains <code>is_valid</code> function to check the validity of the geometries. It returns a table of logical variable (True or False) for different geometries. By using the the function all(), we can easily check whether the results for geometries are True. If they are all True, we can say all geometries are valid. If not, at least one geometry is not valid.  We can find the index of row which is False using <code>where()</code> function in <code>numpy</code> and locate the row in the geometry data. To make it valid, we can use <code>buffer()</code> function. With a buffer distance of 0, we can create a new geometry that has the same shape and location as the original one but with any self-intersections, gaps, or other issues resolved. Then we re-examined the geometries. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check validity of data</span></span><br><span class="line">validity = data_v3.is_valid</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> validity.<span class="built_in">all</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;All geometries are valid&#x27;</span>)</span><br><span class="line"><span class="comment"># if some geometry is not valid, correct the geometry by setting the buffer</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;At least one geometry is not valid&#x27;</span>)</span><br><span class="line">    <span class="comment"># get the index where validity is False</span></span><br><span class="line">    invalid_row_idx = np.where(validity == <span class="literal">False</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Invalid row index:&#x27;</span>, invalid_row_idx)</span><br><span class="line">    <span class="comment"># locate the invalid geometries and set the buffer</span></span><br><span class="line">    selected_rows = data_v3.iloc[invalid_row_idx] </span><br><span class="line">    selected_rows[<span class="string">&#x27;geometry&#x27;</span>] = selected_rows[<span class="string">&#x27;geometry&#x27;</span>].buffer(<span class="number">0</span>)</span><br><span class="line">    data_v3.iloc[invalid_row_idx] = selected_rows</span><br><span class="line">    <span class="comment"># reexmaine the validity</span></span><br><span class="line">    validity_v2=data_v3.is_valid</span><br><span class="line">    <span class="keyword">if</span> validity_v2.<span class="built_in">all</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;the invalid geometry has been corrected, and all geometries are valid&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Still at least one geometry is not valid&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>For out data, there is one geometry not valid whose row index is 160. We validated it by <code>buffer(0)</code>.</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2014.png" >
+        </sapn>
+      </p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Untitled%2015.png" >
+        </sapn>
+      </p>
+<h4 id="2-4-Export-the-data"><a href="#2-4-Export-the-data" class="headerlink" title="2.4 Export the data"></a>2.4 Export the data</h4><p>The Geodataframe <code>data_v3</code>  is what we want, containing ISO_A2 code,  full name of countries, population and GDP in 2019, and validated geometries. We can export it to be geopackage using <code>to_file()</code> function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Export the data to geopackage</span></span><br><span class="line">data_v3.to_file(<span class="string">&#x27;Task-2-Data/Task-1-Exported-Geometries.gpkg&#x27;</span>, layer=<span class="string">&#x27;ISO_A2_Geometries&#x27;</span>, driver=<span class="string">&quot;GPKG&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-Spatial-Data-Mapping"><a href="#3-Spatial-Data-Mapping" class="headerlink" title="3 Spatial Data Mapping"></a>3 Spatial Data Mapping</h2><p><em>Python environment: Python 3.8</em></p>
+<p><em>Format of code: Python script (.py)</em></p>
+<p><em>Input Data: Task-1-Exported-Geometries.gpkg (exported from Geodataframe,  containing ISO_A2 code,  full name of countries, population and GDP in 2019, and geometries.);  Online Natural Earth data (oceans and lakes)</em></p>
+<p><em>Output: Task-2-Result (by Python).png (GDP per capita in 2019)</em></p>
+<h4 id="3-1-Import-and-initialise-the-spatial-data"><a href="#3-1-Import-and-initialise-the-spatial-data" class="headerlink" title="3.1 Import and initialise the spatial data"></a>3.1 Import and initialise the spatial data</h4><p>Importing the libraries is always the first step. We should import <code>geopandas</code> for spatial data, <code>numpy</code> for the arrays., <code>cartopy.crs</code> for getting projection, <code>cartopy.feature</code> for adding features to the map, <code>mapclassify</code> for classify the data, <code>matplotlib.pyplot</code> for plotting the images and <code>Rectangle</code> for building legends.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cartopy.crs <span class="keyword">as</span> ccrs</span><br><span class="line"><span class="keyword">import</span> cartopy.feature <span class="keyword">as</span> cfeature</span><br><span class="line"><span class="keyword">import</span> mapclassify <span class="keyword">as</span> mc</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.patches <span class="keyword">import</span> Rectangle</span><br></pre></td></tr></table></figure>
+
+<p>To make a GDP per capita map for the countries, we first read the data exported from Data Cleaning part. Then we set and calculate the <code>&#39;GDP per capita&#39;</code> dividing <code>&#39;GDP_MD’</code> (unit: million $) by <code>&#39;POP_EST&#39;</code>. We need to multiply the result by 1000000 to get the GDP per capita with the unit of $ per person. As there is row with population as 0, we get some result as NaN. The solution is to omit this part and fill the NaN with 0.</p>
+<p>Eckert IV is a very popular projection for global thematic map. We set CRS to be Eckert IV during our mapping.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">################# 1 data import ################################</span></span><br><span class="line"><span class="comment"># read the world geometry data exported form Task 1</span></span><br><span class="line">data = gpd.read_file(<span class="string">&#x27;Task-2-Data/Task-1-Exported-Geometries.gpkg&#x27;</span>)</span><br><span class="line"><span class="comment"># get the GDP per capita</span></span><br><span class="line">data[<span class="string">&#x27;GDP per capita&#x27;</span>]= <span class="number">1000000</span>* data[<span class="string">&#x27;GDP_MD&#x27;</span>] / data[<span class="string">&#x27;POP_EST&#x27;</span>]</span><br><span class="line"><span class="comment"># replace nan with 0</span></span><br><span class="line">data[<span class="string">&#x27;GDP per capita&#x27;</span>] = data[<span class="string">&#x27;GDP per capita&#x27;</span>].fillna(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># define the crs</span></span><br><span class="line">crs= ccrs.EckertIV()</span><br><span class="line"><span class="comment"># project the data</span></span><br><span class="line">data=data.to_crs(crs)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2-Set-up-the-figure-and-axis"><a href="#3-2-Set-up-the-figure-and-axis" class="headerlink" title="3.2 Set up the figure and axis"></a>3.2 Set up the figure and axis</h4><p>The figure set by <code>figure()</code> is the base for plotting with <code>Matplotlib</code>. On top of the figure, we need to set an axis object accommodating the map. As we create global map, we can use <code>set_global()</code> to set the extent of the axis to be global. The linewidth of axis is set to 1 and colour to grey.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">################# 2 canvas settings ###########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># establish a canvas</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">5</span>))</span><br><span class="line"><span class="comment"># set up and ax object</span></span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, projection=crs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the extent and crs of the map</span></span><br><span class="line">ax.set_global()</span><br><span class="line"><span class="comment"># Set parameters of the ax</span></span><br><span class="line"><span class="keyword">for</span> spine <span class="keyword">in</span> ax.spines.values():</span><br><span class="line">    spine.set_linewidth(<span class="number">1</span>)</span><br><span class="line">    spine.set_color(<span class="string">&#x27;grey&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-3-Classify-the-spatial-data-and-plot-the-result"><a href="#3-3-Classify-the-spatial-data-and-plot-the-result" class="headerlink" title="3.3 Classify the spatial data and plot the result"></a>3.3 Classify the spatial data and plot the result</h4><p>Before mapping, we can classify the data to be 5 classes. We basically use Quantiles method to do it, as every classes contain equal number of countries. <code>mapclassify</code> provides <code>Quantiles</code> function to conduct it. After that, we can check the breaks of the classification. And then we manually adjust the break values to them more neat. Then we redo the classification with custom breaks. <code>UserDefined</code> function of <code>mapclassify</code> can be applied. We then  get an classifier.  <code>classifier.yb</code> can extract  an array containing the class labels for each country in the <code>data[&#39;GDP per capita&#39;]</code> array based on the breaks<br>defined earlier.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">################ 3 classification and plotting ################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># classify the data to be 5 classes using breaks inspired by Quantiles</span></span><br><span class="line">class_number = <span class="number">5</span></span><br><span class="line">breaks = [<span class="number">2000</span>, <span class="number">5000</span>, <span class="number">10000</span>, <span class="number">30000</span>, <span class="number">200000</span>] <span class="comment"># the breaks were inspired by results of Quantiles</span></span><br><span class="line"><span class="comment">#classifier = mc.Quantiles(data[&#x27;GDP per capita&#x27;], k=class_number) # this script was run first to get the raw breaks</span></span><br><span class="line">classifier = mc.UserDefined(data[<span class="string">&#x27;GDP per capita&#x27;</span>], breaks)</span><br><span class="line">classifications = np.array(classifier.yb)</span><br></pre></td></tr></table></figure>
+
+<p>Before plotting the classification, we set the colormap to be ‘RdYnGn’. Lower value is more red and higher one is more green. Then we have a loop to iterate over each class in the classification and plots the corresponding data on the map. For each class <code>i</code>, it creates a subset of the Dataframe containing only the rows where <code>classifications == i</code> . It then plots the geometries  from this subset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plot the classification</span></span><br><span class="line">cmap = plt.get_cmap(<span class="string">&#x27;RdYlGn&#x27;</span>, class_number) <span class="comment">#set the colormap</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(class_number):</span><br><span class="line">    subset = data[classifications == i]</span><br><span class="line">    ax.add_geometries(subset[<span class="string">&#x27;geometry&#x27;</span>], crs, facecolor=cmap(i), edgecolor=<span class="string">&#x27;black&#x27;</span>, linewidth=<span class="number">0.2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Additionally, we can add the ocean and lakes features from <code>Cartopy.feature</code> , which will get the data from Natural Earth.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add the ocean and lakes</span></span><br><span class="line">ax.add_feature(cfeature.OCEAN)</span><br><span class="line">ax.add_feature(cfeature.LAKES)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-4-Design-map-element"><a href="#3-4-Design-map-element" class="headerlink" title="3.4 Design map element"></a>3.4 Design map element</h4><p>All the map elements can be designed based on axis. For the title, font name is Times New Roman and font size is 16. It is by default on the center of the map.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">############### 4 map layout setting ############################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set title</span></span><br><span class="line">ax.set_title(<span class="string">&quot;GDP per capita in 2019 for all countries&quot;</span>)</span><br><span class="line">ax.title.set_fontname(<span class="string">&#x27;times new roman&#x27;</span>)</span><br><span class="line">ax.title.set_fontsize(<span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+
+<p>For legend, we can build 5 rectangles icons with the different colors in the colormap. as we make custom breaks, it is also suitable to make custom labels beside the rectangles. And the position of legend is custom to be in the place near to left bottom corner of the map.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set the legend</span></span><br><span class="line"><span class="comment"># create a list of color labels for the legend (NB: this is only fot the case of 5 classes)</span></span><br><span class="line">color_labels = [<span class="string">&#x27;&lt; 2000&#x27;</span>, <span class="string">&#x27;2000-5000&#x27;</span>, <span class="string">&#x27;5000-10000&#x27;</span>, <span class="string">&#x27;10000-30000&#x27;</span>, <span class="string">&#x27;&gt; 30000&#x27;</span>]</span><br><span class="line"><span class="comment"># create a list of colored rectangles to use for the legend</span></span><br><span class="line">rectangles = [Rectangle((<span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>, <span class="number">1</span>, fc=cmap(i)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(class_number)]</span><br><span class="line"><span class="comment"># create the legend with the colored rectangles</span></span><br><span class="line">legend = ax.legend(rectangles, color_labels, title=<span class="string">&#x27;GDP per capita ($)&#x27;</span>, bbox_to_anchor=(<span class="number">0.25</span>,<span class="number">0.51</span>), </span><br><span class="line">fontsize=<span class="number">8</span>, prop=<span class="string">&#x27;times new roman&#x27;</span>, frameon=<span class="literal">True</span>, facecolor=<span class="string">&#x27;white&#x27;</span>, edgecolor=<span class="string">&#x27;grey&#x27;</span>, fancybox=<span class="literal">False</span>)</span><br><span class="line">legend.get_title().set_fontname(<span class="string">&#x27;times new roman&#x27;</span>)</span><br><span class="line">legend.get_title().set_fontsize(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The gridlines are set to be dash lines with width of 0.25 and colour of blue. We have title on the top so we disable the labels in the top.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set the gridlines</span></span><br><span class="line">gl=ax.gridlines(draw_labels=<span class="literal">True</span>,linestyle=<span class="string">&quot;:&quot;</span>,linewidth=<span class="number">0.25</span>,color=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">gl.top_labels=<span class="literal">False</span>                                                   </span><br><span class="line">gl.xlabel_style=&#123;<span class="string">&#x27;size&#x27;</span>:<span class="number">8</span>,<span class="string">&#x27;fontproperties&#x27;</span>:<span class="string">&#x27;times new roman&#x27;</span>&#125;                          </span><br><span class="line">gl.ylabel_style=&#123;<span class="string">&#x27;size&#x27;</span>:<span class="number">8</span>,<span class="string">&#x27;fontproperties&#x27;</span>:<span class="string">&#x27;times new roman&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Finally, we create a text box containing all the metadata. And the position is also custom to be in the place near the bottom centre. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set the metadata</span></span><br><span class="line"><span class="comment"># Create a text box</span></span><br><span class="line">text_str = <span class="string">&#x27;Made by: Senyang Li | Environment: Python 3.8.16\nSource: Natural Earth | CRS: Eckert IV&#x27;</span></span><br><span class="line">text_box = ax.text(x=<span class="number">0.543</span>, y=<span class="number">0.006</span>, s=text_str,transform=ax.transAxes,</span><br><span class="line">bbox=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;none&#x27;</span>, edgecolor=<span class="string">&#x27;none&#x27;</span>, pad=<span class="number">5</span>))</span><br><span class="line">text_box.set_fontproperties(<span class="string">&#x27;times new roman&#x27;</span>)</span><br><span class="line">text_box.set_fontsize(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-5-Export-the-map"><a href="#3-5-Export-the-map" class="headerlink" title="3.5 Export the map"></a>3.5 Export the map</h4><p>We save the figure to be a png. with resolution of 300m and trim the unnecessary fringe. The figure is also shown after running the script by using <code>plt.show()</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">################# 5 map export and show ###########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># export the map</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;Task-2-Result (by Python).png&#x27;</span>, dpi=<span class="number">300</span>, bbox_inches=<span class="string">&#x27;tight&#x27;</span>)</span><br><span class="line"><span class="comment"># show the map</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/README%20Images/Task-2-Result_(by_Python).png" >
+        </sapn>
+      </p>
+<h2 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h2><h4 id="Software-Download"><a href="#Software-Download" class="headerlink" title="Software Download"></a>Software Download</h4><p>Anaconda: <a target="_blank" rel="noopener" href="https://www.anaconda.com/download/">https://www.anaconda.com/download/</a></p>
+<p>VS Code: <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p>Git: <a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a></p>
+<h4 id="Python-Library-Documentation"><a href="#Python-Library-Documentation" class="headerlink" title="Python Library Documentation"></a>Python Library Documentation</h4><p>Pandas: <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/user_guide/index.html">https://pandas.pydata.org/docs/user_guide&#x2F;index.html</a></p>
+<p>Geopandas: <a target="_blank" rel="noopener" href="https://geopandas.org/en/stable/docs.html">https://geopandas.org/en/stable/docs.html</a></p>
+<p>Matplotlib: <a target="_blank" rel="noopener" href="https://matplotlib.org/stable/index.html">https://matplotlib.org/stable/index.html</a></p>
+<p>Cartopy: <a target="_blank" rel="noopener" href="https://scitools.org.uk/cartopy/docs/latest/getting_started/index.html">https://scitools.org.uk/cartopy/docs/latest/getting_started&#x2F;index.html</a></p>
+<p>Numpy: <a target="_blank" rel="noopener" href="https://numpy.org/doc/">https://numpy.org/doc/</a></p>
+<p>Mapclassify: <a target="_blank" rel="noopener" href="https://pysal.org/mapclassify/tutorial.html">https://pysal.org/mapclassify/tutorial.html</a></p>
+
+        <!-- 分类文章 -->
+        
+      </div>
+      <div class="post-content-inner-space">
+        
+          <div class="space-toc-main animate__animated  animate__fadeInUp">
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Introduction"><span class="space-toc-text">Introduction</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#1-Starter-Set-up-Python-Environment"><span class="space-toc-text">1 Starter: Set up Python Environment</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#2-Spatial-Data-Cleaning"><span class="space-toc-text">2 Spatial Data Cleaning</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#3-Spatial-Data-Mapping"><span class="space-toc-text">3 Spatial Data Mapping</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Useful-Links"><span class="space-toc-text">Useful Links</span></a></li></ol>
+           </div>
+        
+      </div>
+   </div>
+    <!-- 评论 -->
+    
+  </div>
+</article>
+  </div>
+</div>
+
+
+
+<!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+
+  <div class="footer-outer animate__animated  animate__fadeInUp">
+    <div class="footer-inner">
+    <div class="footer-text">
+    <p>Power by <a target="_blank" rel="noopener" href="http://hexo.io/">Hexo</a> Theme by <a target="_blank" rel="noopener" href="https://github.com/FuShaoLei/hexo-theme-white">White</a></p>
+
+    </div>
+    <div class="footer-contact">
+    <ul class="footer-ul">
+        
+        <li class="footer-li">
+            <a href="https://github.com/FuShaoLei/hexo-theme-white" target="_blank">
+                <i class="ri-github-line"></i>
+            </a>
+        </li>
+        
+        <li class="footer-li">
+            <a href="mailto:1563250958@qq.com" target="_blank">
+                <i class="ri-mail-line"></i>
+            </a>
+        </li>
+        
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/js/white.js"></script>
+
+
+
+</body>
+</html>
